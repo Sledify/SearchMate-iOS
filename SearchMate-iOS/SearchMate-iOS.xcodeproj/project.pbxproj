@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		0B0FFC5D2D5C6C56008CA22B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B0FFC442D5C6C54008CA22B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B0FFC4B2D5C6C54008CA22B;
+			remoteInfo = "SearchMate-iOS";
+		};
+		0B0FFC672D5C6C56008CA22B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B0FFC442D5C6C54008CA22B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B0FFC4B2D5C6C54008CA22B;
+			remoteInfo = "SearchMate-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B0FFC4C2D5C6C54008CA22B /* SearchMate-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SearchMate-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0FFC5C2D5C6C56008CA22B /* SearchMate-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchMate-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0FFC662D5C6C56008CA22B /* SearchMate-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchMate-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0B0FFC4E2D5C6C54008CA22B /* SearchMate-iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SearchMate-iOS";
+			sourceTree = "<group>";
+		};
+		0B0FFC5F2D5C6C56008CA22B /* SearchMate-iOSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SearchMate-iOSTests";
+			sourceTree = "<group>";
+		};
+		0B0FFC692D5C6C56008CA22B /* SearchMate-iOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SearchMate-iOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B0FFC492D5C6C54008CA22B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC592D5C6C56008CA22B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC632D5C6C56008CA22B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B0FFC432D5C6C54008CA22B = {
+			isa = PBXGroup;
+			children = (
+				0B0FFC4E2D5C6C54008CA22B /* SearchMate-iOS */,
+				0B0FFC5F2D5C6C56008CA22B /* SearchMate-iOSTests */,
+				0B0FFC692D5C6C56008CA22B /* SearchMate-iOSUITests */,
+				0B0FFC4D2D5C6C54008CA22B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B0FFC4D2D5C6C54008CA22B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B0FFC4C2D5C6C54008CA22B /* SearchMate-iOS.app */,
+				0B0FFC5C2D5C6C56008CA22B /* SearchMate-iOSTests.xctest */,
+				0B0FFC662D5C6C56008CA22B /* SearchMate-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B0FFC4B2D5C6C54008CA22B /* SearchMate-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B0FFC702D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOS" */;
+			buildPhases = (
+				0B0FFC482D5C6C54008CA22B /* Sources */,
+				0B0FFC492D5C6C54008CA22B /* Frameworks */,
+				0B0FFC4A2D5C6C54008CA22B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0B0FFC4E2D5C6C54008CA22B /* SearchMate-iOS */,
+			);
+			name = "SearchMate-iOS";
+			packageProductDependencies = (
+			);
+			productName = "SearchMate-iOS";
+			productReference = 0B0FFC4C2D5C6C54008CA22B /* SearchMate-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0B0FFC5B2D5C6C56008CA22B /* SearchMate-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B0FFC732D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOSTests" */;
+			buildPhases = (
+				0B0FFC582D5C6C56008CA22B /* Sources */,
+				0B0FFC592D5C6C56008CA22B /* Frameworks */,
+				0B0FFC5A2D5C6C56008CA22B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B0FFC5E2D5C6C56008CA22B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0B0FFC5F2D5C6C56008CA22B /* SearchMate-iOSTests */,
+			);
+			name = "SearchMate-iOSTests";
+			packageProductDependencies = (
+			);
+			productName = "SearchMate-iOSTests";
+			productReference = 0B0FFC5C2D5C6C56008CA22B /* SearchMate-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0B0FFC652D5C6C56008CA22B /* SearchMate-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B0FFC762D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOSUITests" */;
+			buildPhases = (
+				0B0FFC622D5C6C56008CA22B /* Sources */,
+				0B0FFC632D5C6C56008CA22B /* Frameworks */,
+				0B0FFC642D5C6C56008CA22B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B0FFC682D5C6C56008CA22B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0B0FFC692D5C6C56008CA22B /* SearchMate-iOSUITests */,
+			);
+			name = "SearchMate-iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "SearchMate-iOSUITests";
+			productReference = 0B0FFC662D5C6C56008CA22B /* SearchMate-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B0FFC442D5C6C54008CA22B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					0B0FFC4B2D5C6C54008CA22B = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					0B0FFC5B2D5C6C56008CA22B = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 0B0FFC4B2D5C6C54008CA22B;
+					};
+					0B0FFC652D5C6C56008CA22B = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 0B0FFC4B2D5C6C54008CA22B;
+					};
+				};
+			};
+			buildConfigurationList = 0B0FFC472D5C6C54008CA22B /* Build configuration list for PBXProject "SearchMate-iOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B0FFC432D5C6C54008CA22B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0B0FFC4D2D5C6C54008CA22B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B0FFC4B2D5C6C54008CA22B /* SearchMate-iOS */,
+				0B0FFC5B2D5C6C56008CA22B /* SearchMate-iOSTests */,
+				0B0FFC652D5C6C56008CA22B /* SearchMate-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B0FFC4A2D5C6C54008CA22B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC5A2D5C6C56008CA22B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC642D5C6C56008CA22B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B0FFC482D5C6C54008CA22B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC582D5C6C56008CA22B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B0FFC622D5C6C56008CA22B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B0FFC5E2D5C6C56008CA22B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B0FFC4B2D5C6C54008CA22B /* SearchMate-iOS */;
+			targetProxy = 0B0FFC5D2D5C6C56008CA22B /* PBXContainerItemProxy */;
+		};
+		0B0FFC682D5C6C56008CA22B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B0FFC4B2D5C6C54008CA22B /* SearchMate-iOS */;
+			targetProxy = 0B0FFC672D5C6C56008CA22B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B0FFC6E2D5C6C56008CA22B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0B0FFC6F2D5C6C56008CA22B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B0FFC712D5C6C56008CA22B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SearchMate-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B0FFC722D5C6C56008CA22B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SearchMate-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0B0FFC742D5C6C56008CA22B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SearchMate-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SearchMate-iOS";
+			};
+			name = Debug;
+		};
+		0B0FFC752D5C6C56008CA22B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SearchMate-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SearchMate-iOS";
+			};
+			name = Release;
+		};
+		0B0FFC772D5C6C56008CA22B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SearchMate-iOS";
+			};
+			name = Debug;
+		};
+		0B0FFC782D5C6C56008CA22B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GKV299JR6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SearchMate-iOS.SearchMate-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SearchMate-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B0FFC472D5C6C54008CA22B /* Build configuration list for PBXProject "SearchMate-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B0FFC6E2D5C6C56008CA22B /* Debug */,
+				0B0FFC6F2D5C6C56008CA22B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B0FFC702D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B0FFC712D5C6C56008CA22B /* Debug */,
+				0B0FFC722D5C6C56008CA22B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B0FFC732D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B0FFC742D5C6C56008CA22B /* Debug */,
+				0B0FFC752D5C6C56008CA22B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B0FFC762D5C6C56008CA22B /* Build configuration list for PBXNativeTarget "SearchMate-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B0FFC772D5C6C56008CA22B /* Debug */,
+				0B0FFC782D5C6C56008CA22B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B0FFC442D5C6C54008CA22B /* Project object */;
+}
