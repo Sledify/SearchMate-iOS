@@ -55,7 +55,7 @@ struct MainView: View {
             .navigationTitle("채용 공고")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AppliedJobsView()) {
+                    NavigationLink(destination: CreatePostView()) {
                         Image(systemName: "list.bullet.clipboard")
                             .font(.title2)
                             .foregroundColor(.primary)
@@ -63,7 +63,7 @@ struct MainView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: LoginView()) {
+                    NavigationLink(destination: CreateResumeView()) {
                         Image(systemName: "person.circle")
                             .font(.title2)
                             .foregroundColor(.primary)
