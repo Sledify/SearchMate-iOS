@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseAuth
+import SwiftUI
 
 class SignUpViewModel: ObservableObject {
     @Published var displayName: String = ""
@@ -17,7 +18,7 @@ class SignUpViewModel: ObservableObject {
     @Published var isSignedUp: Bool = false
 
     private let db = Firestore.firestore()
-    
+
     func signUp() {
         guard password == confirmPassword else {
             DispatchQueue.main.async {
@@ -27,34 +28,39 @@ class SignUpViewModel: ObservableObject {
             return
         }
 
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                DispatchQueue.main.async {
+        AuthManager.shared.signUp(email: email, password: password) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(let user):
+                    self.updateUserProfile(user: user)
+                case .failure(let error):
                     self.errorMessage = error.localizedDescription
                     self.isSignedUp = false
                 }
-                return
-            }
-
-            guard let user = authResult?.user else { return }
-
-            // Firebase Authentication 프로필 업데이트
-            let changeRequest = user.createProfileChangeRequest()
-            changeRequest.displayName = self.displayName
-            changeRequest.commitChanges { error in
-                if let error = error {
-                    print("Error updating display name: \(error.localizedDescription)")
-                }
-
-                // Firestore에 사용자 정보 저장 (commitChanges 완료 후 실행)
-                self.saveUserToFirestore(user: user)
             }
         }
     }
 
+    /// ✅ Firebase Authentication의 `displayName` 업데이트 후 Firestore 저장
+    private func updateUserProfile(user: User) {
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = self.displayName
+        changeRequest.commitChanges { [weak self] error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self?.errorMessage = "프로필 업데이트 실패: \(error.localizedDescription)"
+                }
+            }
+            self?.saveUserToFirestore(user: user)
+        }
+    }
+
+    /// ✅ Firestore에 사용자 정보 저장
     private func saveUserToFirestore(user: User) {
         let userRef = db.collection("users").document(user.uid)
-        let createdAt = Timestamp(date: Date()) // Firestore에서 Timestamp 타입으로 저장
+        let createdAt = Timestamp(date: Date())
 
         let userData: [String: Any] = [
             "displayName": self.displayName,
@@ -62,11 +68,13 @@ class SignUpViewModel: ObservableObject {
             "createdAt": createdAt
         ]
 
-        userRef.setData(userData) { error in
+        userRef.setData(userData) { [weak self] error in
             DispatchQueue.main.async {
+                guard let self = self else { return }
+
                 if let error = error {
-                    AppStateManager.shared.logOut()
-                    self.errorMessage = "Failed to save user data: \(error.localizedDescription)"
+                    AuthManager.shared.signOut { _ in }
+                    self.errorMessage = "유저 데이터 저장 실패: \(error.localizedDescription)"
                     self.isSignedUp = false
                 } else {
                     self.isSignedUp = true
