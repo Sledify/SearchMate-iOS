@@ -63,7 +63,7 @@ struct MainView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: CreateResumeView()) {
+                    NavigationLink(destination: MyPageView()) {
                         Image(systemName: "person.circle")
                             .font(.title2)
                             .foregroundColor(.primary)

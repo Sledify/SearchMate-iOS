@@ -5,6 +5,13 @@
 //  Created by Seonwoo Kim on 2/12/25.
 //
 
+//
+//  AIView.swift
+//  SearchMate-iOS
+//
+//  Created by Seonwoo Kim on 2/12/25.
+//
+
 import SwiftUI
 
 struct AIView: View {
@@ -28,8 +35,8 @@ struct AIView: View {
                             .font(.headline)
 
                         TextEditor(text: Binding(
-                            get: { viewModel.aiResponses[index] },
-                            set: { viewModel.aiResponses[index] = $0 }
+                            get: { viewModel.aiResponses.indices.contains(index) ? viewModel.aiResponses[index] : "" },
+                            set: { if viewModel.aiResponses.indices.contains(index) { viewModel.aiResponses[index] = $0 } }
                         ))
                         .frame(height: 150)
                         .border(Color.gray, width: 1)
@@ -49,7 +56,22 @@ struct AIView: View {
                         .cornerRadius(8)
                         .padding()
                 }
-                
+
+                // ✅ URL로 이동하기 버튼
+                if let postURL = URL(string: post.URL), UIApplication.shared.canOpenURL(postURL) {
+                    Button(action: {
+                        UIApplication.shared.open(postURL)
+                    }) {
+                        Text("URL로 이동하기")
+                            .bold()
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .padding()
+                    }
+                }
+
                 if viewModel.isLoading {
                     ProgressView("AI 답변 생성 중...")
                         .padding()

@@ -96,5 +96,6 @@ struct CreateResumeView: View {
                 .padding()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
