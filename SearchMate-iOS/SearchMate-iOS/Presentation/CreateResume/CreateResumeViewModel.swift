@@ -16,8 +16,6 @@ class CreateResumeViewModel: ObservableObject {
     @Published var certifications: String = ""
     @Published var projects: String = ""
     @Published var freeTopic: String = ""
-    @Published var questionsText: String = "" // ✅ 사용자가 입력하는 필드
-    @Published var questions: [String] = []  // ✅ 실제 저장할 배열
     @Published var errorMessage: String = ""
     @Published var isSubmitted: Bool = false
 
@@ -26,19 +24,6 @@ class CreateResumeViewModel: ObservableObject {
     /// ✅ 현재 로그인된 사용자의 UID 가져오기 (AuthManager 활용)
     private var currentUserId: String? {
         return AuthManager.shared.getCurrentUserId()
-    }
-
-    /// ✅ 질문 추가 기능
-    func addQuestion() {
-        let trimmedQuestion = questionsText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedQuestion.isEmpty else { return }
-        questions.append(trimmedQuestion)
-        questionsText = "" // 입력 필드 초기화
-    }
-
-    /// ✅ 특정 질문 삭제
-    func removeQuestion(at index: Int) {
-        questions.remove(at: index)
     }
 
     /// ✅ 이력서 생성 또는 업데이트 (유저당 1개 제한)
@@ -89,7 +74,6 @@ class CreateResumeViewModel: ObservableObject {
             "certifications": certifications,
             "projects": projects,
             "freeTopic": freeTopic,
-            "questions": questions, // ✅ 배열 형태로 저장
             "updatedAt": Timestamp(date: Date())
         ]
 
@@ -118,7 +102,6 @@ class CreateResumeViewModel: ObservableObject {
             "certifications": certifications,
             "projects": projects,
             "freeTopic": freeTopic,
-            "questions": questions, // ✅ 배열 형태로 저장
             "createdAt": Timestamp(date: Date())
         ]
 
@@ -143,8 +126,6 @@ class CreateResumeViewModel: ObservableObject {
         certifications = ""
         projects = ""
         freeTopic = ""
-        questions = []
-        questionsText = ""
         errorMessage = ""
     }
 }

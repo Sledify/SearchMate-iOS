@@ -16,7 +16,6 @@ struct Resume: Identifiable, Codable {
     let education: String
     let certifications: String
     let projects: String
-    let questions: [String]
     let freeTopic: String
     let createdAt: Date
 }

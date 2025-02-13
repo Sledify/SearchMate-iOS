@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var authManager = AuthManager.shared  // ✅ 로그인 상태 관찰
+    @StateObject private var authManager = AuthManager.shared  // ✅ 로그인 상태 감지
 
     var body: some View {
-        NavigationStack {
+        Group {
             if authManager.isLoggedIn {
-                MainView()  // ✅ 로그인 상태이면 MainView로 이동
+                MainView()  // ✅ 로그인 상태라면 즉시 MainView로 이동
             } else {
-                LoginView()  // ✅ 로그아웃 상태이면 LoginView로 이동
+                LoginView()  // ✅ 로그아웃 상태라면 즉시 LoginView로 이동
             }
         }
         .onAppear {

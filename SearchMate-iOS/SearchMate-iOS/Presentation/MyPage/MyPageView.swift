@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MyPageView: View {
     @StateObject private var viewModel = MyPageViewModel()
-    @State private var navigateToCreateResume = false  // ✅ 네비게이션 상태 추가
+    @State private var navigateToCreateResume = false 
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationStack {  // ✅ MyPageView에서 직접 NavigationStack 관리
@@ -67,6 +68,19 @@ struct MyPageView: View {
                 .navigationDestination(isPresented: $navigateToCreateResume) {
                     CreateResumeView()
                 } // ✅ 네비게이션이 작동하도록 설정
+
+                // ✅ 로그아웃 버튼
+                Button(action: {
+                    viewModel.logout()
+                }) {
+                    Text("로그아웃")
+                        .bold()
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                }
             }
             .padding()
             .onAppear {

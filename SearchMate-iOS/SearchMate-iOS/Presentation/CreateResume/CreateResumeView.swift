@@ -31,47 +31,6 @@ struct CreateResumeView: View {
                         SearchMateTextField(placeholder: "프로젝트 경험", text: $viewModel.projects)
 
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("자기소개서 문항")
-                                .font(.headline)
-
-                            HStack {
-                                TextField("질문 입력", text: $viewModel.questionsText)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .padding(.horizontal)
-
-                                Button(action: {
-                                    viewModel.addQuestion()
-                                }) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.blue)
-                                }
-                            }
-
-                            if !viewModel.questions.isEmpty {
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text("등록된 질문:")
-                                        .font(.subheadline)
-                                        .bold()
-                                    ForEach(viewModel.questions.indices, id: \.self) { index in
-                                        HStack {
-                                            Text(viewModel.questions[index])
-                                                .foregroundColor(.primary)
-                                                .padding(.vertical, 5)
-                                            Spacer()
-                                            Button(action: {
-                                                viewModel.removeQuestion(at: index)
-                                            }) {
-                                                Image(systemName: "minus.circle.fill")
-                                                    .foregroundColor(.red)
-                                            }
-                                        }
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        }
-
-                        VStack(alignment: .leading, spacing: 10) {
                             Text("프리 토픽 (최대 6000자)")
                                 .font(.headline)
 
@@ -96,6 +55,6 @@ struct CreateResumeView: View {
                 .padding()
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
     }
 }

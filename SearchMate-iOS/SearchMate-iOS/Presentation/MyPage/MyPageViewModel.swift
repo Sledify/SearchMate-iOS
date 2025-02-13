@@ -6,7 +6,7 @@
 //
 
 import FirebaseFirestore
-import SwiftUI
+import FirebaseAuth
 
 class MyPageViewModel: ObservableObject {
     @Published var displayName: String = "로딩 중..."
@@ -68,5 +68,20 @@ class MyPageViewModel: ObservableObject {
                     print("🚨 Firestore 데이터 변환 실패: \(error.localizedDescription)")
                 }
             }
+    }
+
+    /// ✅ Firebase 로그아웃 기능 추가
+    func logout() {
+        AuthManager.shared.signOut { result in
+            switch result {
+            case .success:
+                print("✅ 로그아웃 성공")
+                DispatchQueue.main.async {
+                    AuthManager.shared.isLoggedIn = false
+                }
+            case .failure(let error):
+                print("🚨 로그아웃 실패: \(error.localizedDescription)")
+            }
+        }
     }
 }
