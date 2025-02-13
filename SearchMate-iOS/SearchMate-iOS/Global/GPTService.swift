@@ -2,8 +2,6 @@
 //  GPTService.swift
 //  SearchMate-iOS
 //
-//  Created by Seonwoo Kim on 2/13/25.
-//
 
 import Foundation
 
@@ -31,21 +29,24 @@ class GPTService {
 
     func requestGPTResponse(prompts: [String]) async throws -> [String] {
         guard !apiKey.isEmpty else {
+            print("🚨 API Key가 설정되지 않았습니다!")
             throw URLError(.userAuthenticationRequired)
         }
 
+        print("📝 요청된 프롬프트 개수: \(prompts.count)")
+
         var responses: [String] = []
 
-        for (index, prompt) in prompts.enumerated() {
+        for prompt in prompts {
             let messages: [[String: String]] = [
-                ["role": "system", "content": "You are an AI assistant."]
-            ] + [["role": "user", "content": prompt]]
+                ["role": "system", "content": "You are an AI assistant. 사용자의 이력서를 참고하여 자기소개서 문항에 대한 답변을 생성하세요."],
+                ["role": "user", "content": prompt]
+            ]
 
-            print("📨 [\(index+1)/\(prompts.count)] Sending prompt: \(prompt)")
-
-            let requestBody = GPTRequest(model: "gpt-4", messages: messages, temperature: 0.7)
+            let requestBody = GPTRequest(model: "gpt-4o", messages: messages, temperature: 0.7)
 
             guard let url = URL(string: apiURL) else {
+                print("🚨 API URL이 잘못되었습니다!")
                 throw URLError(.badURL)
             }
 
@@ -55,56 +56,30 @@ class GPTService {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = try JSONEncoder().encode(requestBody)
 
-            do {
-                let (data, response) = try await withCheckedThrowingContinuation { continuation in
-                    Task {
-                        // ⏳ 요청이 진행되는 동안 로딩 메시지 출력
-                        var loadingCounter = 0
-                        let loadingTask = Task {
-                            while !Task.isCancelled {
-                                loadingCounter += 1
-                                print("⏳ AI 응답 생성 중... [\(loadingCounter)]")
-                                try await Task.sleep(nanoseconds: 1_000_000_000) // 1초마다 메시지 출력
-                            }
-                        }
+            print("📡 OpenAI API 요청 시작...")
 
-                        do {
-                            let (data, response) = try await URLSession.shared.data(for: request)
-                            loadingTask.cancel() // 성공하면 로딩 메시지 중단
-                            continuation.resume(returning: (data, response))
-                        } catch {
-                            loadingTask.cancel() // 실패하면 로딩 메시지 중단
-                            continuation.resume(throwing: error)
-                        }
-                    }
-                }
+            do {
+                let (data, response) = try await URLSession.shared.data(for: request)
 
                 guard let httpResponse = response as? HTTPURLResponse else {
+                    print("🚨 응답을 파싱할 수 없습니다!")
                     throw URLError(.cannotParseResponse)
                 }
 
                 print("📡 HTTP Status Code: \(httpResponse.statusCode)")
 
-                if httpResponse.statusCode == 429 {
-                    print("⚠️ 429 Too Many Requests: 대기 중...")
-                    try await Task.sleep(nanoseconds: 2_000_000_000) // 2초 대기 후 재시도
-                    continue
-                }
-
-                guard httpResponse.statusCode == 200 else {
+                if httpResponse.statusCode == 200 {
+                    let decodedResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
+                    let responseText = decodedResponse.choices.first?.message.content ?? "응답 없음"
+                    responses.append(responseText)
+                    print("✅ GPT 응답: \(responseText)")
+                } else {
+                    print("🚨 API 요청 실패 - 상태 코드: \(httpResponse.statusCode)")
                     throw URLError(.badServerResponse)
                 }
-
-                let decodedResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
-                let responseText = decodedResponse.choices.first?.message.content ?? "응답 없음"
-                
-                print("✅ AI 응답: \(responseText)")
-                responses.append(responseText)
-
-                // 요청 간 1초 대기 (429 오류 방지)
-                try await Task.sleep(nanoseconds: 0_100_000_000)
             } catch {
                 print("🚨 GPT 요청 실패: \(error.localizedDescription)")
+                throw error
             }
         }
 
