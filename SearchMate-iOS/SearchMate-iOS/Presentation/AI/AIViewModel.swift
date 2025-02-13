@@ -51,13 +51,16 @@ class AIViewModel: ObservableObject {
         }
     }
 
-    /// ✅ Firestore에서 최신 Resume 가져오기
+    /// ✅ Firestore에서 현재 로그인된 사용자의 최신 Resume 가져오기
     private func fetchResume(completion: @escaping (Resume?) -> Void) {
-        let userId = "exampleUserId" // 🔥 실제 로그인된 사용자 ID로 변경 필요
+        guard let userId = AuthManager.shared.getCurrentUserId() else {
+            print("사용자가 로그인되지 않았습니다.")
+            completion(nil)
+            return
+        }
 
         db.collection("resume_posts")
             .whereField("userId", isEqualTo: userId)
-            .order(by: "createdAt", descending: true)
             .limit(to: 1)
             .getDocuments { snapshot, error in
                 if let error = error {
@@ -71,8 +74,13 @@ class AIViewModel: ObservableObject {
                     return
                 }
 
-                let resume = try? document.data(as: Resume.self)
-                completion(resume)
+                do {
+                    let resume = try document.data(as: Resume.self)
+                    completion(resume)
+                } catch {
+                    print("Resume 데이터 변환 실패: \(error.localizedDescription)")
+                    completion(nil)
+                }
             }
     }
 
@@ -109,3 +117,4 @@ class AIViewModel: ObservableObject {
         }
     }
 }
+    

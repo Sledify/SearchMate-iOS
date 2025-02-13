@@ -31,6 +31,47 @@ struct CreateResumeView: View {
                         SearchMateTextField(placeholder: "프로젝트 경험", text: $viewModel.projects)
 
                         VStack(alignment: .leading, spacing: 10) {
+                            Text("자기소개서 문항")
+                                .font(.headline)
+
+                            HStack {
+                                TextField("질문 입력", text: $viewModel.questionsText)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding(.horizontal)
+
+                                Button(action: {
+                                    viewModel.addQuestion()
+                                }) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundColor(.blue)
+                                }
+                            }
+
+                            if !viewModel.questions.isEmpty {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("등록된 질문:")
+                                        .font(.subheadline)
+                                        .bold()
+                                    ForEach(viewModel.questions.indices, id: \.self) { index in
+                                        HStack {
+                                            Text(viewModel.questions[index])
+                                                .foregroundColor(.primary)
+                                                .padding(.vertical, 5)
+                                            Spacer()
+                                            Button(action: {
+                                                viewModel.removeQuestion(at: index)
+                                            }) {
+                                                Image(systemName: "minus.circle.fill")
+                                                    .foregroundColor(.red)
+                                            }
+                                        }
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                        }
+
+                        VStack(alignment: .leading, spacing: 10) {
                             Text("프리 토픽 (최대 6000자)")
                                 .font(.headline)
 
@@ -38,21 +79,11 @@ struct CreateResumeView: View {
                                 .frame(height: 200)
                                 .border(Color.gray, width: 1)
                                 .padding(.horizontal)
-                                .onChange(of: viewModel.freeTopic) { _ in
-                                    if viewModel.freeTopic.count > 6000 {
-                                        viewModel.freeTopic = String(viewModel.freeTopic.prefix(6000))
-                                    }
-                                }
-
-                            Text("\(viewModel.freeTopic.count)/6000")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .padding(.horizontal)
                         }
                     }
 
                     Button(action: {
-                        viewModel.createResume()
+                        viewModel.createOrUpdateResume()
                     }) {
                         Text("이력서 저장")
                             .bold()
@@ -60,17 +91,6 @@ struct CreateResumeView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(8)
-                    }
-
-                    if !viewModel.errorMessage.isEmpty {
-                        Text(viewModel.errorMessage)
-                            .foregroundColor(.red)
-                            .multilineTextAlignment(.center)
-                    }
-
-                    if viewModel.isSubmitted {
-                        Text("이력서가 성공적으로 저장되었습니다!")
-                            .foregroundColor(.green)
                     }
                 }
                 .padding()

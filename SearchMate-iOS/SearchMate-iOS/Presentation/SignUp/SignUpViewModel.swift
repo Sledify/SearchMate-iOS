@@ -57,12 +57,13 @@ class SignUpViewModel: ObservableObject {
         }
     }
 
-    /// ✅ Firestore에 사용자 정보 저장
+    /// ✅ Firestore에 사용자 정보 저장 (id 필드 포함)
     private func saveUserToFirestore(user: User) {
         let userRef = db.collection("users").document(user.uid)
         let createdAt = Timestamp(date: Date())
 
         let userData: [String: Any] = [
+            "id": AuthManager.shared.getCurrentUserId(),  // ✅ 유저 ID 저장
             "displayName": self.displayName,
             "email": self.email,
             "createdAt": createdAt
