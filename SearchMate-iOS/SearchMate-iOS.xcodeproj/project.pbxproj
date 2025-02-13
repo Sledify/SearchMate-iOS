@@ -14,6 +14,7 @@
 		0B0FFD092D5C800A008CA22B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FFD082D5C800A008CA22B /* FirebaseFirestore */; };
 		0B0FFD0B2D5C800A008CA22B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FFD0A2D5C800A008CA22B /* FirebaseMessaging */; };
 		0B0FFD0D2D5C800A008CA22B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0FFD0C2D5C800A008CA22B /* FirebaseStorage */; };
+		0B0FFD7C2D5D9095008CA22B /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0B0FFD7B2D5D9095008CA22B /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +38,25 @@
 		0B0FFC4C2D5C6C54008CA22B /* SearchMate-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SearchMate-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B0FFC5C2D5C6C56008CA22B /* SearchMate-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchMate-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B0FFC662D5C6C56008CA22B /* SearchMate-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchMate-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0FFD7B2D5D9095008CA22B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0B0FFD7E2D5D9359008CA22B /* Exceptions for "SearchMate-iOS" folder in "SearchMate-iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0B0FFC4B2D5C6C54008CA22B /* SearchMate-iOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0B0FFC4E2D5C6C54008CA22B /* SearchMate-iOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0B0FFD7E2D5D9359008CA22B /* Exceptions for "SearchMate-iOS" folder in "SearchMate-iOS" target */,
+			);
 			path = "SearchMate-iOS";
 			sourceTree = "<group>";
 		};
@@ -92,6 +107,7 @@
 		0B0FFC432D5C6C54008CA22B = {
 			isa = PBXGroup;
 			children = (
+				0B0FFD7B2D5D9095008CA22B /* Config.xcconfig */,
 				0B0FFC4E2D5C6C54008CA22B /* SearchMate-iOS */,
 				0B0FFC5F2D5C6C56008CA22B /* SearchMate-iOSTests */,
 				0B0FFC692D5C6C56008CA22B /* SearchMate-iOSUITests */,
@@ -239,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0FFD7C2D5D9095008CA22B /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +315,7 @@
 /* Begin XCBuildConfiguration section */
 		0B0FFC6E2D5C6C56008CA22B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B0FFD7B2D5D9095008CA22B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -361,6 +379,7 @@
 		};
 		0B0FFC6F2D5C6C56008CA22B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B0FFD7B2D5D9095008CA22B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -426,6 +445,7 @@
 				DEVELOPMENT_TEAM = GKV299JR6D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SearchMate-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -455,6 +475,7 @@
 				DEVELOPMENT_TEAM = GKV299JR6D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SearchMate-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
