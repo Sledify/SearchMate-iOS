@@ -45,6 +45,7 @@ class MainViewModel: ObservableObject {
                             deadline: data["deadline"] as? String ?? "상시 채용",
                             jobDescription: data["jobDescription"] as? String ?? "",
                             URL: data["URL"] as? String ?? "",
+                            questions: data["questions"] as? [String] ?? [],
                             isApplied: data["isApplied"] as? Bool ?? false,
                             createdAt: data["createdAt"] as? String ?? "Unknown date"
                         )

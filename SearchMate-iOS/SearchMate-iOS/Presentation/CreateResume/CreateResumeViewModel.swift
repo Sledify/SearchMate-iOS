@@ -27,29 +27,33 @@ class CreateResumeViewModel: ObservableObject {
             return
         }
 
-        let resumeId = UUID().uuidString
-        let newResume: [String: Any] = [
-            "id": resumeId,
-            "userId": "exampleUserId", // 실제 사용자 ID 사용
-            "name": name,
-            "skills": skills.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) },
-            "workExperience": workExperience,
-            "education": education,
-            "certifications": certifications,
-            "projects": projects,
-            "freeTopic": freeTopic,
-            "createdAt": Timestamp(date: Date())
-        ]
+        let resume = Resume(
+            id: UUID().uuidString,
+            userId: "exampleUserId", // 실제 사용자 ID 사용 필요
+            name: name,
+            skills: skills.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) },
+            workExperience: workExperience,
+            education: education,
+            certifications: certifications,
+            projects: projects,
+            freeTopic: freeTopic,
+            createdAt: Date()
+        )
 
-        db.collection("resume_posts").document(resumeId).setData(newResume) { error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    self.errorMessage = "저장 실패: \(error.localizedDescription)"
-                } else {
-                    self.isSubmitted = true
-                    self.clearForm()
+        do {
+            let resumeData = try Firestore.Encoder().encode(resume)
+            db.collection("resume_posts").document(resume.id).setData(resumeData) { error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self.errorMessage = "저장 실패: \(error.localizedDescription)"
+                    } else {
+                        self.isSubmitted = true
+                        self.clearForm()
+                    }
                 }
             }
+        } catch {
+            errorMessage = "데이터 인코딩 실패: \(error.localizedDescription)"
         }
     }
 

@@ -17,6 +17,7 @@ struct Post: Identifiable {
     let deadline: String
     let jobDescription: String
     let URL: String
+    let questions: [String]
     let isApplied: Bool
     let createdAt: String
 }

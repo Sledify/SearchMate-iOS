@@ -5,6 +5,13 @@
 //  Created by Seonwoo Kim on 2/12/25.
 //
 
+//
+//  CreatePostViewModel.swift
+//  SearchMate-iOS
+//
+//  Created by Seonwoo Kim on 2/12/25.
+//
+
 import FirebaseFirestore
 import SwiftUI
 
@@ -16,6 +23,7 @@ class CreatePostViewModel: ObservableObject {
     @Published var preferredQualifications: String = ""
     @Published var deadline: String = ""
     @Published var jobDescription: String = ""
+    @Published var questions: [String] = [] // 배열로 변경
     @Published var URL: String = ""
     @Published var errorMessage: String = ""
     @Published var isSubmitted: Bool = false
@@ -44,6 +52,7 @@ class CreatePostViewModel: ObservableObject {
             "deadline": Timestamp(date: deadlineDate),
             "jobDescription": jobDescription,
             "URL": URL,
+            "questions": questions, // Firestore에서 배열로 저장
             "isApplied": true,
             "createdAt": Timestamp(date: Date())
         ]
@@ -60,6 +69,14 @@ class CreatePostViewModel: ObservableObject {
         }
     }
 
+    func addQuestion() {
+        questions.append("")
+    }
+
+    func removeQuestion(at index: Int) {
+        questions.remove(at: index)
+    }
+
     private func clearForm() {
         job = ""
         company = ""
@@ -69,6 +86,7 @@ class CreatePostViewModel: ObservableObject {
         deadline = ""
         jobDescription = ""
         URL = ""
+        questions = []
         errorMessage = ""
     }
 }
