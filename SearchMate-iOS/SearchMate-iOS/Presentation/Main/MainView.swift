@@ -11,7 +11,7 @@ struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(viewModel.posts.indices, id: \.self) { index in
                     let post = viewModel.posts[index]
@@ -65,6 +65,15 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: MyPageView()) {
                         Image(systemName: "person.circle")
+                            .font(.title2)
+                            .foregroundColor(.primary)
+                    }
+                }
+
+                // ✅ ReviewView로 이동하는 리스트 아이콘 추가
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: ReviewView()) {
+                        Image(systemName: "list.bullet.rectangle")
                             .font(.title2)
                             .foregroundColor(.primary)
                     }
