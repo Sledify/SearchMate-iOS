@@ -80,6 +80,7 @@ struct MainView: View {
                 }
             }
         }
+        .tint(.black)
     }
 }
 
