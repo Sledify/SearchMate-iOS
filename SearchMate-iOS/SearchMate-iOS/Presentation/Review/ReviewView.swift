@@ -12,24 +12,26 @@ struct ReviewView: View {
 
     var body: some View {
         List(viewModel.reviews) { review in
-            VStack(alignment: .leading) {
-                Text(review.job)
-                    .font(.headline)
-                Text(review.company)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Text(review.reviewContent)
-                    .lineLimit(2)
-                    .font(.body)
+            NavigationLink(destination: CreditReviewView(review: review)) { // ✅ CreditReviewView로 이동
+                VStack(alignment: .leading) {
+                    Text(review.job)
+                        .font(.headline)
+                    Text(review.company)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    Text(review.reviewContent)
+                        .lineLimit(2)
+                        .font(.body)
+                }
             }
         }
-        .navigationTitle("합격 리뷰") // ✅ 여기는 그대로 유지
+        .navigationTitle("합격 리뷰")
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 NavigationLink(destination: CreateReviewView()) {
                     Image(systemName: "plus.circle")
                         .font(.title2)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.primary)
                 }
             }
         }

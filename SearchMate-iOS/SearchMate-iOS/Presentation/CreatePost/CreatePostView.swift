@@ -65,7 +65,7 @@ struct CreatePostView: View {
                                     Image(systemName: "plus.circle.fill")
                                     Text("질문 추가")
                                 }
-                                .foregroundColor(.blue)
+                                .foregroundColor(.smBlue)
                             }
                         }
                     }
@@ -76,7 +76,7 @@ struct CreatePostView: View {
                         Text("등록하기")
                             .bold()
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.blue)
+                            .background(.smBlue)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }

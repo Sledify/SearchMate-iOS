@@ -29,7 +29,7 @@ struct MainView: View {
                                 Spacer()
                                 Text("마감일: \(post.deadline)")
                                     .font(.footnote)
-                                    .foregroundColor(.red)
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
@@ -56,8 +56,8 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: CreatePostView()) {
-                        Image(systemName: "list.bullet.clipboard")
-                            .font(.title2)
+                        Image(systemName: "plus.circle")
+                            .font(.title3)
                             .foregroundColor(.primary)
                     }
                 }
@@ -65,7 +65,7 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: MyPageView()) {
                         Image(systemName: "person.circle")
-                            .font(.title2)
+                            .font(.title3)
                             .foregroundColor(.primary)
                     }
                 }
@@ -74,7 +74,7 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationLink(destination: ReviewView()) {
                         Image(systemName: "list.bullet.rectangle")
-                            .font(.title2)
+                            .font(.title3)
                             .foregroundColor(.primary)
                     }
                 }

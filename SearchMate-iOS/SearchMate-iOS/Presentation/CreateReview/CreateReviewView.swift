@@ -58,7 +58,7 @@ struct CreateReviewView: View {
                                     Image(systemName: "plus.circle.fill")
                                     Text("질문 추가")
                                 }
-                                .foregroundColor(.blue)
+                                .foregroundColor(.smBlue)
                             }
                         }
                     }
@@ -69,7 +69,7 @@ struct CreateReviewView: View {
                         Text("리뷰 등록하기")
                             .bold()
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.blue)
+                            .background(.smBlue)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
@@ -82,7 +82,7 @@ struct CreateReviewView: View {
 
                     if viewModel.isSubmitted {
                         Text("리뷰가 등록되었습니다!")
-                            .foregroundColor(.green)
+                            .foregroundColor(.smGray)
                     }
 
                     Spacer().frame(height: 100) // 키보드 여백 추가

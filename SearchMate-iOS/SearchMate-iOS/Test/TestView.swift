@@ -18,7 +18,7 @@ struct TestView: View {
 
             Text(viewModel.recommendedMeal)
                 .font(.title2)
-                .foregroundColor(.blue)
+                .foregroundColor(.smBlue)
                 .padding()
                 .multilineTextAlignment(.center)
 
@@ -38,7 +38,7 @@ struct TestView: View {
                 Text("식사 추천 받기")
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(.smBlue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }

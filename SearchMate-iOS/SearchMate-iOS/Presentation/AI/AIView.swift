@@ -5,13 +5,6 @@
 //  Created by Seonwoo Kim on 2/12/25.
 //
 
-//
-//  AIView.swift
-//  SearchMate-iOS
-//
-//  Created by Seonwoo Kim on 2/12/25.
-//
-
 import SwiftUI
 
 struct AIView: View {
@@ -21,27 +14,56 @@ struct AIView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
-                Text("\(post.job) - AI 기반 자기소개서 작성")
-                    .font(.title)
+                Text("\(post.job)")
+                    .font(.title3)
                     .bold()
-                    .padding()
 
                 Divider()
 
-                // ✅ 자기소개서 문항과 AI의 답변
+                // ✅ 자기소개서 문항과 AI의 답변 (키보드 입력 방지)
                 ForEach(post.questions.indices, id: \.self) { index in
-                    VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 20) {
                         Text("질문 \(index + 1): \(post.questions[index])")
                             .font(.headline)
+                            .foregroundColor(.black)
 
-                        TextEditor(text: Binding(
-                            get: { viewModel.aiResponses.indices.contains(index) ? viewModel.aiResponses[index] : "" },
-                            set: { if viewModel.aiResponses.indices.contains(index) { viewModel.aiResponses[index] = $0 } }
-                        ))
-                        .frame(height: 150)
-                        .border(Color.gray, width: 1)
-                        .padding(.horizontal)
+                        ZStack(alignment: .topLeading) {
+                            if viewModel.aiResponses.indices.contains(index) && viewModel.aiResponses[index].isEmpty {
+                                Text("내용을 입력하세요...")
+                                    .foregroundColor(.gray)
+                                    .padding(.horizontal, 14)
+                                    .padding(.top, 10)
+                            }
+
+                            TextEditor(text: Binding(
+                                get: { viewModel.aiResponses.indices.contains(index) ? viewModel.aiResponses[index] : "" },
+                                set: { _ in } // 입력 방지
+                            ))
+                            .padding(12)
+                            .frame(height: 150)
+                            .font(.caption)
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray, lineWidth: 1)
+                            )
+                            .disabled(true) // 키보드 입력 방지
+                            .allowsHitTesting(false) // 터치 입력 방지
+                        }
                     }
+                }
+                
+                if viewModel.isLoading {
+                    ProgressView("AI 답변 생성 중...")
+                        .padding()
+                }
+
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding()
                 }
 
                 // ✅ AI 답변 생성 버튼
@@ -51,7 +73,7 @@ struct AIView: View {
                     Text("AI 답변 생성")
                         .bold()
                         .frame(maxWidth: .infinity, minHeight: 44)
-                        .background(Color.blue)
+                        .background(.smBlue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                         .padding()
@@ -65,27 +87,15 @@ struct AIView: View {
                         Text("URL로 이동하기")
                             .bold()
                             .frame(maxWidth: .infinity, minHeight: 44)
-                            .background(Color.green)
+                            .background(.smGray)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .padding()
                     }
                 }
-
-                if viewModel.isLoading {
-                    ProgressView("AI 답변 생성 중...")
-                        .padding()
-                }
-
-                if !viewModel.errorMessage.isEmpty {
-                    Text(viewModel.errorMessage)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                }
             }
             .padding()
         }
-        .navigationTitle("AI 작성 보기")
+        .navigationTitle("AI 자기소개서")
     }
 }
