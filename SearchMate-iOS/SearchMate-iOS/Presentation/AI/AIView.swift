@@ -49,7 +49,6 @@ struct AIView: View {
                                     .stroke(Color.gray, lineWidth: 1)
                             )
                             .disabled(true) // 키보드 입력 방지
-                            .allowsHitTesting(false) // 터치 입력 방지
                         }
                     }
                 }
