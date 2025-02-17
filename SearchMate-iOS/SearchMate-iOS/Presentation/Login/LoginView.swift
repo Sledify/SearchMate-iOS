@@ -14,7 +14,7 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 50) {
+            VStack(spacing: 100) {
                 Image(.logo)
                     .frame(width: 326, height: 114)
                 

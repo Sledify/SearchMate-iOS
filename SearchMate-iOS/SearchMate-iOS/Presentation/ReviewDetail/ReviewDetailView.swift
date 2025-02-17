@@ -47,8 +47,8 @@ struct ReviewDetailView: View {
                                     .bold()
                                 
                                 Text(review.questions[index].answer)
-                                    .font(.body)
-                                    .padding(8)
+                                    .font(.caption)
+                                    .padding(15)
                                     .background(Color(.systemGray6))
                                     .cornerRadius(8)
                             }
