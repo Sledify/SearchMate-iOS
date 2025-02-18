@@ -12,6 +12,8 @@ struct ReviewView: View {
 
     var body: some View {
         List(viewModel.reviews) { review in
+            Text("HUFS님을 위한 합격 리뷰를 썰매가 모아 봤어요!")
+                .font(.subheadline)
             NavigationLink(destination: CreditReviewView(review: review)) { // ✅ CreditReviewView로 이동
                 VStack(alignment: .leading) {
                     Text(review.job)

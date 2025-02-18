@@ -53,8 +53,11 @@ struct AIView: View {
                 }
                 
                 if viewModel.isLoading {
-                    ProgressView("AI 답변 생성 중...")
+                    ProgressView(viewModel.progressText)
                         .padding()
+                        .onAppear {
+                            viewModel.startProgressTimer()
+                        }
                 }
 
                 if !viewModel.errorMessage.isEmpty {

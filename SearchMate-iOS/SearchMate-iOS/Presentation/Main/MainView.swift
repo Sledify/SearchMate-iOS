@@ -13,6 +13,8 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             List {
+                Text("HUFS님을 위한 공고를 썰매가 모아 봤어요!")
+                    .font(.subheadline)
                 ForEach(viewModel.posts.indices, id: \.self) { index in
                     let post = viewModel.posts[index]
                     NavigationLink(destination: JobDetailView(post: post)) {
@@ -52,7 +54,7 @@ struct MainView: View {
             .onAppear {
                 viewModel.fetchPosts()
             }
-            .navigationTitle("채용 공고")
+            .navigationTitle("AI 추천 공고")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: CreatePostView()) {
