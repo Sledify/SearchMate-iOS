@@ -12,7 +12,6 @@ class NotificationManager {
 
     private init() {} // 싱글톤 패턴
 
-    /// 알림 권한 요청
     func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if let error = error {
@@ -22,14 +21,12 @@ class NotificationManager {
         }
     }
 
-    /// 1분 후 로컬 푸시 알림 스케줄링
     func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "썰매"
         content.body = "썰매가 HUFS님께 딱 맞는 공고를 가져왔어요!"
         content.sound = .default
 
-        // 60초 후 알림 발송
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
