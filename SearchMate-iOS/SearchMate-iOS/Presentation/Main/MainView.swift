@@ -11,8 +11,10 @@ struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
+                Text("HUFS님을 위한 공고를 썰매가 모아 봤어요!")
+                    .font(.subheadline)
                 ForEach(viewModel.posts.indices, id: \.self) { index in
                     let post = viewModel.posts[index]
                     NavigationLink(destination: JobDetailView(post: post)) {
@@ -29,7 +31,7 @@ struct MainView: View {
                                 Spacer()
                                 Text("마감일: \(post.deadline)")
                                     .font(.footnote)
-                                    .foregroundColor(.red)
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
@@ -52,12 +54,12 @@ struct MainView: View {
             .onAppear {
                 viewModel.fetchPosts()
             }
-            .navigationTitle("채용 공고")
+            .navigationTitle("AI 추천 공고")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: CreatePostView()) {
-                        Image(systemName: "list.bullet.clipboard")
-                            .font(.title2)
+                        Image(systemName: "plus.circle")
+                            .font(.title3)
                             .foregroundColor(.primary)
                     }
                 }
@@ -65,12 +67,22 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: MyPageView()) {
                         Image(systemName: "person.circle")
-                            .font(.title2)
+                            .font(.title3)
+                            .foregroundColor(.primary)
+                    }
+                }
+
+                // ✅ ReviewView로 이동하는 리스트 아이콘 추가
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(destination: ReviewView()) {
+                        Image(systemName: "list.bullet.rectangle")
+                            .font(.title3)
                             .foregroundColor(.primary)
                     }
                 }
             }
         }
+        .tint(.black)
     }
 }
 

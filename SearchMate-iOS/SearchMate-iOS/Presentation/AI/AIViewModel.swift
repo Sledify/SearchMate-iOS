@@ -10,13 +10,24 @@ class AIViewModel: ObservableObject {
     @Published var aiResponses: [String] = ["", "", "", ""]
     @Published var isLoading: Bool = false
     @Published var errorMessage: String = ""
-
+    @Published var progressText: String = "(1/3) 내 데이터 불러오는 중..."
+    
     private let db = Firestore.firestore()
     private let gptService = GPTService()
+    private var timer: Timer?
+    private var progressStep = 0
+    private let progressMessages = [
+        "(1/3) 내 데이터 불러오는 중...",
+        "(2/3) 성공 사례 불러오는 중...",
+        "(3/3) 성공 사례를 조합하여 답변 생성 중..."
+    ]
 
     func generateAIResponses(for post: Post) {
         isLoading = true
         errorMessage = ""
+        progressStep = 0
+        progressText = progressMessages[0]
+        startProgressTimer()
         
         print("🟢 AI 응답 생성 시작!")
 
@@ -51,12 +62,10 @@ class AIViewModel: ObservableObject {
             }
 
             print("📨 AI 요청 생성 중... 요청 개수: \(prompts.count)")
-
             self.callGPT(prompts: prompts)
         }
     }
 
-    /// ✅ Firestore에서 현재 로그인된 사용자의 최신 Resume 가져오기
     private func fetchResume(completion: @escaping (Resume?) -> Void) {
         guard let userId = AuthManager.shared.getCurrentUserId() else {
             DispatchQueue.main.async {
@@ -109,7 +118,6 @@ class AIViewModel: ObservableObject {
             }
     }
 
-    /// ✅ Resume 정보를 AI에게 적합한 텍스트 포맷으로 변환
     private func formatResumeForAI(_ resume: Resume) -> String {
         return """
         이름: \(resume.name)
@@ -122,7 +130,6 @@ class AIViewModel: ObservableObject {
         """
     }
 
-    /// ✅ GPT API 호출
     private func callGPT(prompts: [String]) {
         Task {
             do {
@@ -140,6 +147,22 @@ class AIViewModel: ObservableObject {
                     self.isLoading = false
                 }
                 print("🚨 AI 응답 처리 중 오류 발생: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func startProgressTimer() {
+        progressStep = 0
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            if self.progressStep < self.progressMessages.count - 1 {
+                self.progressStep += 1
+                self.progressText = self.progressMessages[self.progressStep]
+            } else {
+                self.timer?.invalidate()
             }
         }
     }

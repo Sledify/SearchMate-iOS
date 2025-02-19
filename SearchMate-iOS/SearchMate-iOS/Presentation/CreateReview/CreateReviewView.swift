@@ -1,21 +1,14 @@
 //
-//  CreatePostView.swift
+//  CreateReviewView.swift
 //  SearchMate-iOS
 //
-//  Created by Seonwoo Kim on 2/12/25.
-//
-
-//
-//  CreatePostView.swift
-//  SearchMate-iOS
-//
-//  Created by Seonwoo Kim on 2/12/25.
+//  Created by Seonwoo Kim on 2/15/25.
 //
 
 import SwiftUI
 
-struct CreatePostView: View {
-    @StateObject private var viewModel = CreatePostViewModel()
+struct CreateReviewView: View {
+    @StateObject private var viewModel = CreateReviewViewModel()
     
     var body: some View {
         ZStack {
@@ -24,7 +17,7 @@ struct CreatePostView: View {
 
             ScrollView {
                 VStack(spacing: 50) {
-                    Text("지원한 공고 등록")
+                    Text("합격 리뷰 작성")
                         .font(.title)
                         .foregroundColor(.black)
                         .bold()
@@ -33,19 +26,19 @@ struct CreatePostView: View {
                         SearchMateTextField(placeholder: "직무", text: $viewModel.job)
                         SearchMateTextField(placeholder: "회사명", text: $viewModel.company)
                         SearchMateTextField(placeholder: "고용 형태", text: $viewModel.jobType)
-                        SearchMateTextField(placeholder: "자격 요건", text: $viewModel.qualifications)
-                        SearchMateTextField(placeholder: "우대 사항", text: $viewModel.preferredQualifications)
-                        SearchMateTextField(placeholder: "마감일 (YYYY.MM.DD)", text: $viewModel.deadline)
-                        SearchMateTextField(placeholder: "채용 상세 설명", text: $viewModel.jobDescription)
-                        SearchMateTextField(placeholder: "채용 URL", text: $viewModel.URL)
-                        
+                        SearchMateTextField(placeholder: "리뷰 내용", text: $viewModel.reviewContent)
+
                         VStack(alignment: .leading, spacing: 10) {
                             Text("자기소개서 문항")
                                 .font(.headline)
                             
                             ForEach(viewModel.questions.indices, id: \.self) { index in
                                 HStack {
-                                    TextField("질문 입력", text: $viewModel.questions[index])
+                                    TextField("질문", text: $viewModel.questions[index].question)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding(.horizontal)
+
+                                    TextField("답변", text: $viewModel.questions[index].answer)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
                                         .padding(.horizontal)
 
@@ -71,9 +64,9 @@ struct CreatePostView: View {
                     }
                     
                     Button(action: {
-                        viewModel.createPost()
+                        viewModel.createReview()
                     }) {
-                        Text("등록하기")
+                        Text("리뷰 등록하기")
                             .bold()
                             .frame(maxWidth: .infinity, minHeight: 44)
                             .background(.smBlue)
@@ -88,8 +81,8 @@ struct CreatePostView: View {
                     }
 
                     if viewModel.isSubmitted {
-                        Text("공고가 등록되었습니다!")
-                            .foregroundColor(.green)
+                        Text("리뷰가 등록되었습니다!")
+                            .foregroundColor(.smGray)
                     }
 
                     Spacer().frame(height: 100) // 키보드 여백 추가
